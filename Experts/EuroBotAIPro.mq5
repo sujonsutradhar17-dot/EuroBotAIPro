@@ -2,6 +2,7 @@
 //| EuroBotAIPro - FAST VERSION (WORKING CORE EA)                   |
 //+------------------------------------------------------------------+
 #property strict
+bool hasTrade = false;
 
 #include <Trade/Trade.mqh>
 CTrade trade;
@@ -38,10 +39,20 @@ double LotSize(double sl_points)
    if(lot < 0.01) lot = 0.01;
    return NormalizeDouble(lot,2);
 }
-
-// Main logic
+// FUNCTIONS
+bool HasOpenPosition()
+{
+   for(int i=0;i<PositionsTotal();i++)
+   {
+      if(PositionGetSymbol(i)==_Symbol)
+         return true;
+   }
+   return false;
+}
 void OnTick()
 {
+...
+}
    double ema[1], rsi[2], atr[1];
 
    CopyBuffer(emaHandle,0,0,1,ema);
