@@ -39,13 +39,13 @@ bool HasOpenPosition()
    {
       if(PositionSelectByIndex(i))
       {
-         if(PositionGetString(POSITION_SYMBOL) == _Symbol)
+         if(PositionGetString(POSITION_SYMBOL) == _Symbol &&
+            PositionGetInteger(POSITION_MAGIC) == 2026)
             return true;
       }
    }
    return false;
 }
-
 //+------------------------------------------------------------------+
 // LOT SIZE CALCULATION
 //+------------------------------------------------------------------+
