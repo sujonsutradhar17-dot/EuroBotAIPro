@@ -26,9 +26,10 @@ int OnInit()
    rsiHandle = iRSI(_Symbol, PERIOD_M15, RSI_Period, PRICE_CLOSE);
    atrHandle = iATR(_Symbol, PERIOD_M15, ATR_Period);
 
+   trade.SetExpertMagicNumber(2026);
+
    return(INIT_SUCCEEDED);
 }
-
 //+------------------------------------------------------------------+
 // CHECK OPEN POSITIONS
 //+------------------------------------------------------------------+
