@@ -34,10 +34,13 @@ int OnInit()
 //+------------------------------------------------------------------+
 bool HasOpenPosition()
 {
-   for(int i=0;i<PositionsTotal();i++)
+   for(int i=PositionsTotal()-1; i>=0; i--)
    {
-      if(PositionSelect(_Symbol))
-         return true;
+      if(PositionSelectByIndex(i))
+      {
+         if(PositionGetString(POSITION_SYMBOL) == _Symbol)
+            return true;
+      }
    }
    return false;
 }
