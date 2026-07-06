@@ -1,23 +1,34 @@
 //+------------------------------------------------------------------+
-//|                                              EuroBotAIPro.mq5    |
-//|                   Euro Bot AI Pro - MT5 Expert Advisor           |
+//| EuroBotAIPro.mq5                                                 |
 //+------------------------------------------------------------------+
-#property copyright "Taraknath Sutradhar"
-#property version   "1.00"
 #property strict
+#property version "1.00"
+
+#include "../Include/TradeEngine.mqh"
+#include "../Include/RiskManager.mqh"
+#include "../Include/Indicators.mqh"
+#include "../Include/SmartMoney.mqh"
+#include "../Include/Dashboard.mqh"
+#include "../Include/Telegram.mqh"
+#include "../Include/NewsFilter.mqh"
 
 int OnInit()
 {
-   Print("EuroBotAI Pro initialized.");
+   Print("EuroBotAI Pro Started");
    return(INIT_SUCCEEDED);
 }
 
 void OnDeinit(const int reason)
 {
-   Print("EuroBotAI Pro stopped.");
+   Comment("");
 }
 
 void OnTick()
 {
-   // Trading logic will be added here.
+   DrawDashboard();
+
+   if(IsNewsTime())
+      return;
+
+   // Trading logic will be added later
 }
